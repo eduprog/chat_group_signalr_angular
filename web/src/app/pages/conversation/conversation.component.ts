@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { ConversationService } from 'src/app/services/conversation.service';
 import { Message, EMessageType } from 'src/app/models/message';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-conversation',
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.component.css']
 })
-export class ConversationComponent {
+export class ConversationComponent implements OnInit {
 
   content: string;
+  @ViewChild('contentMessage', {static: true}) contentMessage: MatInput;
 
   constructor(
     public conversationService: ConversationService,
@@ -24,12 +26,25 @@ export class ConversationComponent {
         this.conversationService.leaveGroup();
       }
     });
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.contentMessage)
+    this.contentMessage.focus();
   }
 
   sendMessage(): void {
     const message: Message = new Message(this.content, EMessageType.Text);
     this.conversationService.sendMessage(message);
     this.content = "";
+    this.contentMessage.focus();
+  }
+
+  onEnterInput(event: KeyboardEvent): void {
+    if (event.keyCode == 13) {
+      this.sendMessage();
+    }
   }
 
 }

@@ -31,7 +31,8 @@
 
     <div class="container-control">
       <mat-form-field class="example-full-width">
-        <input  matInput [(ngModel)]="content"
+        <input  matInput #contentMessage="matInput" [(ngModel)]="content" autofocus
+        (keyup)="onEnterInput($event)"
         placeholder="Digite sua mensagem">
       </mat-form-field>
       <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="sendMessage()" >Enviar</button>

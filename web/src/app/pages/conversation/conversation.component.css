@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 66px);
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   margin: 0 10px;
@@ -13,6 +13,8 @@
 .container-messages {
   flex: 1;
   padding: 10px;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
 }
 
 .example-full-width {
