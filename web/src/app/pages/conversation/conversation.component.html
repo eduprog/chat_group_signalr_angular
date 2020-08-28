@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <div class="container-messages" *ngIf="(conversationService.messages$ | async) as messages">
+    <div id="message-container" class="container-messages" *ngIf="(conversationService.messages$ | async) as messages">
       <div *ngFor="let message of messages">
         <ng-container *ngIf="message.type == 1">
           <mat-card class="message-card">

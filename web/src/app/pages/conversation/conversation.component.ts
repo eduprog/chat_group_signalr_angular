@@ -39,6 +39,12 @@ export class ConversationComponent implements OnInit {
     this.conversationService.sendMessage(message);
     this.content = "";
     this.contentMessage.focus();
+
+    //get the div that contains all the messages
+    let div = document.getElementById('message-container');
+
+    //make the last element (a message) to scroll into view, smoothly!
+    div.lastElementChild.scrollIntoView({ behavior: 'smooth' });
   }
 
   onEnterInput(event: KeyboardEvent): void {
