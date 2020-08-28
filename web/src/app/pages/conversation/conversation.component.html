@@ -1,0 +1,40 @@
+
+<div class="container">
+
+    <div class="container-messages" *ngIf="(conversationService.messages$ | async) as messages">
+      <div *ngFor="let message of messages">
+        <ng-container *ngIf="message.type == 1">
+          <mat-card class="message-card">
+            <p class="name-title">
+            {{ message.content }}
+            <small class="message-info">{{ message.createdAt | date: 'dd/MM/yyyy - hh:mm:ss' }} </small>
+          </mat-card>
+        </ng-container>
+
+        <ng-container *ngIf="message.type == 2">
+
+          <mat-card class="message-card">
+            <div style="display: flex; justify-content: space-between;">
+              <mat-card-title class="title">{{ message.userName  }}</mat-card-title>
+              <mat-card-subtitle class="subtitle">Em {{ message.createdAt | date: 'dd/MM/yyyy - HH:mm:ss' }}</mat-card-subtitle>
+            </div>
+            <mat-card-content>
+              <p>
+                {{ message.content }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="container-control">
+      <mat-form-field class="example-full-width">
+        <input  matInput [(ngModel)]="content"
+        placeholder="Digite sua mensagem">
+      </mat-form-field>
+      <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="sendMessage()" >Enviar</button>
+    </div>
+</div>
+

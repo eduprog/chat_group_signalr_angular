@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row *ngIf="!(userInfo$ | async)">
+    <span>Chat</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="(userInfo$ | async) as userInfo">
+      <span ><strong>{{ userInfo.groupName || 'Chat' }} </strong> <small>{{ userInfo.userName }}</small> </span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="leaveGroup()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+  </mat-toolbar-row>
+</mat-toolbar>

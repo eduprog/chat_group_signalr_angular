@@ -1,0 +1,15 @@
+.container-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.container-form > * {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.container-form > button {
+  height: 60px;
+  line-height: 60px;
+}

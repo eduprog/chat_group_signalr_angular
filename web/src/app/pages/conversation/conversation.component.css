@@ -1,0 +1,44 @@
+.container {
+  height: calc(100vh - 66px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.container-control {
+  height: 56px;
+  display: flex;
+}
+
+.container-messages {
+  flex: 1;
+  padding: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.message-card {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+}
+
+.name-title {
+  font-size: 14px;
+  text-align: center;
+}
+
+.message-info {
+  font-size: 12px;
+  display: block;
+}
+
+.message-card > .title {
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.message-card > .subtitle {
+  font-size: 12px;
+}

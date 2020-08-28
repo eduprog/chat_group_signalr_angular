@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container > .outlet {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 460px) {
+
+.container > .outlet {
+  min-width: 460px;
+}
+
+}
