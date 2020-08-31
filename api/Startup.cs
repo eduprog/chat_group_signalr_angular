@@ -38,7 +38,7 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
             
-            app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials().WithOrigins("http://localhost:4200", "http://192.168.0.105:4200"));
+            app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials().WithOrigins("http://localhost:4200", "http://192.168.0.103:4200"));
 
             /* app.UseHttpsRedirection(); */
 

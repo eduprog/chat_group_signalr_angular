@@ -1,7 +1,7 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { ConversationService } from 'src/app/services/conversation.service';
 import { Message, EMessageType } from 'src/app/models/message';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
 
@@ -10,10 +10,10 @@ import { MatInput } from '@angular/material/input';
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.component.css']
 })
-export class ConversationComponent implements OnInit {
+export class ConversationComponent implements OnInit, AfterViewInit {
 
   content: string;
-  @ViewChild('contentMessage', {static: true}) contentMessage: MatInput;
+  @ViewChild('contentMessage', { static: true }) contentMessage: MatInput;
 
   constructor(
     public conversationService: ConversationService,
@@ -29,8 +29,11 @@ export class ConversationComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+    console.log("diwjkfwe")
+  }
+
   ngOnInit(): void {
-    console.log(this.contentMessage)
     this.contentMessage.focus();
   }
 
@@ -39,7 +42,9 @@ export class ConversationComponent implements OnInit {
     this.conversationService.sendMessage(message);
     this.content = "";
     this.contentMessage.focus();
+  }
 
+  scrollToBottom(): void {
     //get the div that contains all the messages
     let div = document.getElementById('message-container');
 

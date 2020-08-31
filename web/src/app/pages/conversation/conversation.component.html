@@ -2,7 +2,7 @@
 <div class="container">
 
     <div id="message-container" class="container-messages" *ngIf="(conversationService.messages$ | async) as messages">
-      <div *ngFor="let message of messages">
+      <div *ngFor="let message of messages; let last = last">
         <ng-container *ngIf="message.type == 1">
           <mat-card class="message-card">
             <p class="name-title">
@@ -25,7 +25,7 @@
             </mat-card-content>
           </mat-card>
         </ng-container>
-
+        {{ last ? scrollToBottom() : '' }}
       </div>
     </div>
 
