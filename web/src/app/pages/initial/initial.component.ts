@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, NgForm, FormControl } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ConversationService } from '../../services/conversation.service';
@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './initial.component.html',
   styleUrls: ['./initial.component.css']
 })
-export class InitialComponent implements OnInit {
+export class InitialComponent {
 
   form: FormGroup;
 
@@ -36,9 +36,6 @@ export class InitialComponent implements OnInit {
     });
 
     this.form.markAllAsTouched();
-  }
-
-  ngOnInit(): void {
   }
 
   handleEnterGroup() {

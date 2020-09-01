@@ -1,7 +1,9 @@
-import { Message } from './message';
+import { Message, EMessageType } from './message';
 
-describe('Message', () => {
-  it('should create an instance', () => {
-    expect(new Message()).toBeTruthy();
+describe('A classe Message', () => {
+  it('deve ser instanciada com 2 argumentos no construtor', () => {
+    expect(new Message("Conteúdo da mensagem", EMessageType.Text)).toBeTruthy();
   });
+
+  
 });

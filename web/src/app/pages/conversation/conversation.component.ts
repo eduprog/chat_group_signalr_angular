@@ -10,7 +10,7 @@ import { MatInput } from '@angular/material/input';
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.component.css']
 })
-export class ConversationComponent implements OnInit, AfterViewInit {
+export class ConversationComponent implements OnInit {
 
   content: string;
   @ViewChild('contentMessage', { static: true }) contentMessage: MatInput;
@@ -26,11 +26,6 @@ export class ConversationComponent implements OnInit, AfterViewInit {
         this.conversationService.leaveGroup();
       }
     });
-
-  }
-
-  ngAfterViewInit(): void {
-    console.log("diwjkfwe")
   }
 
   ngOnInit(): void {
